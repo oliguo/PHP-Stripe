@@ -1,0 +1,12 @@
+{
+    "name": "oliguo/php-stripe",
+    "require": {
+        "stripe/stripe-php": "^7.28"
+    },
+    "authors": [
+        {
+            "name": "oli.guo",
+            "email": "oli.zd.guo@gmail.com"
+        }
+    ]
+}
