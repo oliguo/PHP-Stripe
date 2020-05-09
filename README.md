@@ -81,3 +81,28 @@ http://localhost:5000/web/others.php
 <img src="https://github.com/oliguo/PHP-Stripe/blob/master/screenshots/others-alipay.gif" width="250"/>
 
 <img src="https://github.com/oliguo/PHP-Stripe/blob/master/screenshots/others-wechat-pay.gif" width="250"/>
+
+### To limit specify card
+```js
+   /**
+   * If you would like to handle card, e.g.Limit only visa
+   * https://stripe.com/docs/js/element/events/on_change?type=cardElement
+   */
+  card.on('change', function (event) {
+    if (event.error) {
+      // show validation to customer
+    }
+    var displayError = document.getElementById('card-errors');
+    if (event.brand === 'visa') {
+      // to do the logic
+      displayError.textContent = '';
+    } else {
+      displayError.textContent = 'only visa';
+    }
+  });
+```
+<img src="https://github.com/oliguo/PHP-Stripe/blob/master/screenshots/only-visa-one-input.png" width="250"/>
+
+<img src="https://github.com/oliguo/PHP-Stripe/blob/master/screenshots/only-visa-multi-input.png" width="250"/>
+
+
