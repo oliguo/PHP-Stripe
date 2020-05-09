@@ -56,6 +56,23 @@ var setupElements = function (data) {
     hidePostalCode: true,
   });
   card.mount("#card-element");
+  
+  /**
+   * If you would like to handle card, e.g.Limit only visa
+   * https://stripe.com/docs/js/element/events/on_change?type=cardElement
+   */
+  card.on('change', function (event) {
+    if (event.error) {
+      // show validation to customer
+    }
+    var displayError = document.getElementById('card-errors');
+    if (event.brand === 'visa') {
+      // to do the logic
+      displayError.textContent = '';
+    } else {
+      displayError.textContent = 'only visa';
+    }
+  });
 
   return {
     stripe: stripe,
